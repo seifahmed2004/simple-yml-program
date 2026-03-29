@@ -1,22 +1,27 @@
-name: simple ML pipeline
+name: Simple ML Pipeline
+
 on:
   push:
     branches:
-      -main
+      - main
+
 jobs:
   test-job:
-    runs-on: ubunto-Latest
+    runs-on: ubuntu-latest
+
     steps:
-      - name: checkout code
-      - uses: actions/checkout@v4
-      - name: set up python 
-      - uses: actions/setup-python@v5
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.10
-      - name: install dependencies
+          python-version: "3.10"
+
+      - name: Install dependencies
         run: |
           pip install --upgrade pip
-      - name: run simple test
-        run: |
-          python -c "print('pipeline is working')"
 
+      - name: Run simple test
+        run: |
+          python -c "print('Pipeline is working!')"
